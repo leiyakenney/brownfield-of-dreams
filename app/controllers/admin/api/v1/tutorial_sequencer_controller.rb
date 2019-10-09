@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Admin::Api::V1::TutorialSequencerController < Admin::Api::V1::BaseController
   def update
     tutorial = Tutorial.find(params[:tutorial_id])
@@ -10,7 +8,7 @@ class Admin::Api::V1::TutorialSequencerController < Admin::Api::V1::BaseControll
 
   private
 
-  def ordered_video_ids
-    params[:tutorial_sequencer][:_json]
-  end
+    def ordered_video_ids
+      params[:tutorial_sequencer][:_json]
+    end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :find_bookmark
@@ -21,6 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   def four_oh_four
-    raise ActionController::RoutingError, 'Not Found'
+    raise ActionController::RoutingError.new('Not Found')
   end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TutorialSequencer
   def initialize(tutorial, sequenced_video_ids)
     @tutorial = tutorial
@@ -11,7 +9,6 @@ class TutorialSequencer
   end
 
   private
-
   attr_reader :tutorial, :sequenced_video_ids
 
   def videos
@@ -24,7 +21,9 @@ class TutorialSequencer
         video.id == video_id.to_i
       end
 
-      video.update(position: index) if video.position != index
+      if video.position != index
+        video.update(position: index)
+      end
     end
   end
 end

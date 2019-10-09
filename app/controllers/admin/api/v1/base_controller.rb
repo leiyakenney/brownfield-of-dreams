@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Admin::Api::V1::BaseController < ActionController::API
   before_action :require_admin!
 
@@ -8,14 +6,14 @@ class Admin::Api::V1::BaseController < ActionController::API
   end
 
   def current_user
-    @current_user ||= if session[:user_id]
-                        User.find(session[:user_id])
-                      else
-                        User.new
-                      end
+    if session[:user_id]
+      @current_user ||= User.find(session[:user_id])
+    else
+      @current_user ||= User.new
+    end
   end
 
   def four_oh_four
-    raise ActionController::RoutingError, 'Not Found'
+    raise ActionController::RoutingError.new('Not Found')
   end
 end

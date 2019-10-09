@@ -1,11 +1,10 @@
-# frozen_string_literal: true
-
 class Admin::TutorialsController < Admin::BaseController
   def edit
     @tutorial = Tutorial.find(params[:id])
   end
 
-  def create; end
+  def create
+  end
 
   def new
     @tutorial = Tutorial.new
@@ -20,7 +19,6 @@ class Admin::TutorialsController < Admin::BaseController
   end
 
   private
-
   def tutorial_params
     params.require(:tutorial).permit(:tag_list)
   end

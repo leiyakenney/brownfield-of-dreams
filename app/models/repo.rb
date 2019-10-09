@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Repo
   attr_reader :name, :url
 
@@ -7,4 +5,5 @@ class Repo
     @name = repo[:name]
     @url = repo[:html_url]
   end
+
 end
