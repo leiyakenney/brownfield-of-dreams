@@ -18,4 +18,10 @@
       <p class="repo_name_and_link"><%= link_to repo.name, repo.url %></p>
     <% end %>
   </section>
+
+  <section class ="followers">
+    <% followers.each do |follower| %>
+      <p class="username_and_link"> <%= link_to follower.username, follower.url %> </p>
+    <% end %>
+  </section>
 </section>
