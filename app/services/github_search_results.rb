@@ -1,7 +1,7 @@
 class GithubSearchResults
 
   def repos
-    response = conn.get("/user/repos", { :access_token => ENV['github_api_key'] }) # .json ???
+    response = conn.get("/user/repos", { :access_token => ENV['GITHUB_API_KEY'] }) # .json ???
     repo_data = JSON.parse(response.body, symbolize_names: true)
   end
 
