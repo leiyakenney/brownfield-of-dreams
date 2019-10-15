@@ -1,24 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :tutorials, only: %i[show index]
-      resources :videos, only: [:show]
-    end
-  end
-
-  root 'welcome#index'
-  get 'tags/:tag', to: 'welcome#index', as: :tag
-  get '/register', to: 'users#new'
-
-  get '/auth/github', as: :github_login
-  get '/auth/github/callback', to: 'github#create'
-
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
-    delete "/tutorials/:id", to: "tutorials#destroy", as: :delete_tutorial
-    resources :tutorials, only: [:create, :edit, :update, :new] do
+    resources :tutorials, only: [:destroy, :create, :edit, :update, :new] do
       resources :videos, only: [:create]
     end
     resources :videos, only: %i[edit update destroy]
@@ -29,6 +14,22 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  root 'welcome#index'
+  get 'tags/:tag', to: 'welcome#index', as: :tag
+  get '/register', to: 'users#new'
+
+  namespace :api do
+    namespace :v1 do
+      resources :tutorials, only: %i[show index]
+      resources :videos, only: [:show]
+    end
+  end
+
+
+  get '/auth/github', as: :github_login
+  get '/auth/github/callback', to: 'github#create'
+
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
