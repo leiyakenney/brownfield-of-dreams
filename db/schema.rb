@@ -95,5 +95,4 @@ ActiveRecord::Schema.define(version: 2019_10_14_192927) do
 
   add_foreign_key "user_videos", "users"
   add_foreign_key "user_videos", "videos", on_delete: :cascade
-  #otherwise the videos has a foreign key on the u_v table
 end
