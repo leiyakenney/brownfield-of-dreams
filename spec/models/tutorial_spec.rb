@@ -7,15 +7,6 @@ RSpec.describe Tutorial, type: :model do
     it { should have_many(:videos) }
   end
 
-  describe 'deleting a tutorial' do
-    it "deletes videos when the tutorial is deleted" do
-      tutorial = Tutorial.create
-      video1 = create(:video, tutorial_id: tutorial.id)
-
-      expect { tutorial.destroy }.to change { Video.count }.by(-1)
-    end
-  end
-  
   describe "class methods" do
     it "can verify that a user has no orders" do
       tutorial = create(:tutorial, title: 'How to Tie Your Shoes', classroom: false)
@@ -33,4 +24,5 @@ RSpec.describe Tutorial, type: :model do
 
 
     expect(Tutorial.non_classroom_tutorials).to eq([tutorial, tutorial_2, tutorial_4, tutorial_5, tutorial_6])
+  end
 end
