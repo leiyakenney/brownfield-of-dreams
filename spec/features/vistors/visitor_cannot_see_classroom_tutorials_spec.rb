@@ -9,11 +9,11 @@ describe 'A visitor' do
     tutorial_4 = create(:tutorial, title: 'How to Style Your Hair', classroom: false)
     tutorial_5 = create(:tutorial, title: 'How to Style Your Hair: The Sequel', classroom: false)
     tutorial_6 = create(:tutorial, title: 'How to Style Your Hair 3', classroom: false)
-    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial)
-    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_1)
-    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_2)
-    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_3)
-    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_4)
+    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial, position: 1)
+    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_1, position: 1)
+    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_2, position: 1)
+    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_3, position: 1)
+    create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_4, position: 1)
 
     visit "/tutorials/#{tutorial_3.id}"
     expect(page).to have_content("The page you were looking for doesn't exist (404)")
