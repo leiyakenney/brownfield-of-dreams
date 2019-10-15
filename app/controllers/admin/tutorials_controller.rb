@@ -5,6 +5,13 @@ class Admin::TutorialsController < Admin::BaseController
     @tutorial = Tutorial.find(params[:id])
   end
 
+  def destroy
+    Tutorial.find(params[:id]).destroy
+    # binding.pry
+    flash[:success] = "This tutorial has been deleted."
+    redirect_to admin_dashboard_path
+  end
+
   def create; end
 
   def new
