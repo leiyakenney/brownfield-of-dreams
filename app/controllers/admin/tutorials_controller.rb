@@ -7,7 +7,6 @@ class Admin::TutorialsController < Admin::BaseController
 
   def destroy
     tutorial = Tutorial.find(params[:id])
-    # binding.pry
     tutorial.destroy
     redirect_to admin_dashboard_path
     flash[:success] = "This tutorial has been deleted."
