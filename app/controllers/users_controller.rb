@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(email: params[:email])
+    user = User.find(params[:id])
     user.update_attribute(:active, true)
     user.save
     flash[:success] = "Your account has been activated!"
