@@ -82,5 +82,5 @@ ActiveRecord::Schema.define(version: 2018_07_31_230036) do
   end
 
   add_foreign_key "user_videos", "users"
-  add_foreign_key "user_videos", "videos"
+  add_foreign_key "user_videos", "videos", on_delete: :cascade
 end
