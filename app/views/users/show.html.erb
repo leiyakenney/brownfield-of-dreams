@@ -2,14 +2,14 @@
   <h1> <%= current_user.first_name %>'s Dashboard </h1>
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
-  <h3>Account Details</h3>
+  <h4>Account Details</h4>
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-  <h3>Bookmarked Segments</h3>
+  <h4>Bookmarked Segments</h4>
   <% @bookmarks.each do |bookmark| %>
-    <h2>Tutorial <%= bookmark[0] %></h2>
+    <h3>Tutorial <%= bookmark[0] %></h3>
     <% bookmark[1].each do |bookmark_array| %>
     <%= bookmark_array.title %>
     <br>
@@ -19,14 +19,14 @@
 
 
   <% if @current_user.github_token? %>
-    <h3>Github Section</h3>
-    <h4>Repos</h4>
+    <h4>Github Section</h4>
+    <h3>Repos</h3>
     <section class ="github">
       <% repos.each do |repo| %>
         <p class="repo_name_and_link"><%= link_to repo.name, repo.url %></p>
       <% end %>
 
-    <h4>Followers</h4>
+    <h3>Followers</h3>
       <% followers.each do |follower| %>
         <td class="followers_name_and_link"><%= link_to follower.name, follower.url %></td>
         <% if (find_associated_user(follower.uid).nil? == false) && (find_associated_user(follower.uid).github_username?) && (find_associated_user(follower.uid).github_username == follower.uid) %>
@@ -35,7 +35,7 @@
         <br>
       <% end %>
 
-    <h4>Followed Accounts</h4>
+    <h3>Followed Accounts</h3>
       <% followed_accounts.each do |followed_account| %>
         <td class="following_name_and_link"><%= link_to followed_account.name, followed_account.url %></td>
         <% if (find_associated_user(followed_account.uid).nil? == false) && (find_associated_user(followed_account.uid).github_username?) && (find_associated_user(followed_account.uid).github_username == followed_account.uid) %>

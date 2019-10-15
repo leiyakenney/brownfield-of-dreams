@@ -1,23 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  namespace :api do
-    namespace :v1 do
-      resources :tutorials, only: %i[show index]
-      resources :videos, only: [:show]
-    end
-  end
-
-  root 'welcome#index'
-  get 'tags/:tag', to: 'welcome#index', as: :tag
-  get '/register', to: 'users#new'
-
-  get '/auth/github', as: :github_login
-  get '/auth/github/callback', to: 'github#create'
-
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
-    resources :tutorials, only: %i[create edit update destroy new] do
+    resources :tutorials, only: [:destroy, :create, :edit, :update, :new] do
       resources :videos, only: [:create]
     end
     resources :videos, only: %i[edit update destroy]
@@ -29,6 +15,22 @@ Rails.application.routes.draw do
     end
   end
 
+  root 'welcome#index'
+  get 'tags/:tag', to: 'welcome#index', as: :tag
+  get '/register', to: 'users#new'
+
+  namespace :api do
+    namespace :v1 do
+      resources :tutorials, only: %i[show index]
+      resources :videos, only: [:show]
+    end
+  end
+
+
+  get '/auth/github', as: :github_login
+  get '/auth/github/callback', to: 'github#create'
+
+
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
@@ -37,7 +39,7 @@ Rails.application.routes.draw do
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
-  # Is this being used?
+  # I don't think this is being used
   get '/video', to: 'video#show'
 
   resources :users, only: %i[new create update edit]

@@ -8,10 +8,10 @@ describe 'Visitor' do
       tutorial1 = create(:tutorial)
       tutorial2 = create(:tutorial)
 
-      video1 = create(:video, tutorial_id: tutorial1.id)
-      video2 = create(:video, tutorial_id: tutorial1.id)
-      video3 = create(:video, tutorial_id: tutorial2.id)
-      video4 = create(:video, tutorial_id: tutorial2.id)
+      video1 = create(:video, tutorial_id: tutorial1.id, position: 1)
+      video2 = create(:video, tutorial_id: tutorial1.id, position: 2)
+      video3 = create(:video, tutorial_id: tutorial2.id, position: 1)
+      video4 = create(:video, tutorial_id: tutorial2.id, position: 2)
 
       visit root_path
 

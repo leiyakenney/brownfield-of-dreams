@@ -119,3 +119,12 @@ m3_tutorial.videos.create!(
 User.create!(email: 'josh@example.com', first_name: 'Josh', last_name: 'Sherwood', password: 'password')
 User.create!(email: 'leiya@example.com', first_name: 'Leiya', last_name: 'Kenney', password: 'password', github_token: ENV["LEIYA_GITHUB_API_KEY"], github_username: 45922590)
 User.create!(email: 'admin@example.com', first_name: 'Bossy', last_name: 'McBosserton', password: 'password', role: :admin)
+
+mod_4_tutorial_data = {
+  'title' => 'Back End Engineering - Module 4',
+  'description' => 'Videos related to Mod 4.',
+  'thumbnail' => 'https://i.ytimg.com/vi/tZDBWXZzLPk/hqdefault.jpg',
+  'playlist_id' => 'PL1Y67f0xPzdNsXqiJs1s4NlpI6ZMNdMsb',
+  'classroom' => true
+}
+m4_tutorial = Tutorial.create! mod_4_tutorial_data
