@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'A Non-Registered User' do
-  it "sees an activation message in their email that directs them to a confirmation page" do
+describe 'A Non-Activated User' do
+  it "can activate their account" do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
     last_name = 'Bob'
@@ -24,9 +24,23 @@ describe 'A Non-Registered User' do
     fill_in 'user[password]', with: password
     fill_in 'user[password_confirmation]', with: password
 
-    click_on'Create Account'
+    click_on 'Create Account'
 
-    
+    expect(current_path).to eq(dashboard_path)
+
+    expect(page).to have_content("Account Status:\nAccount Inactive")
+
+    user = User.last
+
+    visit("/users/#{user.id}/activate")
+
+    expect(current_path).to eq(dashboard_path)
+
+    expect(page).to have_content("Your account has been activated!")
+
+    expect(page).to have_content("Account Status:\nAccount Activated")
+
+
 
 
     # As a non-activated user
