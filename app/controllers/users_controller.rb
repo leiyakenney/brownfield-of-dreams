@@ -22,6 +22,7 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      EmailActivatorMailer.notify(user).deliver
       redirect_to dashboard_path
       flash[:success] = "Logged in as #{user.first_name} #{user.last_name}"
       flash[:notice] = "This account has not yet been activated. Please check your email."
@@ -29,6 +30,13 @@ class UsersController < ApplicationController
       flash[:error] = user.errors.full_messages.to_sentence
       render :new
     end
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update_attribute(:active, true)
+    user.save
+    redirect_to "/dashboard"
   end
 
   private
