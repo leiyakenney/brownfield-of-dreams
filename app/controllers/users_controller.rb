@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.update_attribute(:active, true)
     user.save
+    flash[:success] = "Your account has been activated!"
     redirect_to "/dashboard"
   end
 
