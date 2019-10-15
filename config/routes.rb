@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
-  # Is this being used?
+  # I don't think this is being used
   get '/video', to: 'video#show'
 
   resources :users, only: %i[new create update edit]

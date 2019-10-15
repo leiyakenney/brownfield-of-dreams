@@ -3,6 +3,7 @@
 class Video < ApplicationRecord
   has_many :user_videos, dependent: :destroy
   has_many :users, through: :user_videos
+  #user_videos here is why we have to add the cascade
   belongs_to :tutorial
   validates_presence_of :position
 
