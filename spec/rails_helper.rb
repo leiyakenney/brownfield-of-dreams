@@ -19,6 +19,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.filter_sensitive_data('<YOUTUBE_API_KEY>') { ENV['YOUTUBE_API_KEY'] }
   config.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['github_api_key'] }
+  config.filter_sensitive_data('<LEIYA_GITHUB_API_KEY>') { ENV['LEIYA_GITHUB_API_KEY'] }
 end
 
 ActiveRecord::Migration.maintain_test_schema!
