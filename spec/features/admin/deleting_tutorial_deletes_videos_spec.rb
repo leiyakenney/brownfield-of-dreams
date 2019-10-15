@@ -12,8 +12,8 @@ describe "Admin deletes a tutorial" do
     visit admin_dashboard_path
 
     expect(page).to have_content(tutorial.title)
-    
-    click_link "Destroy"
+
+    click_button "Destroy"
 
     expect(current_path).to eq(admin_dashboard_path)
     expect(page).to_not have_content(tutorial.title)
