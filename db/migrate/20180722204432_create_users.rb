@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string  :password_digest
       t.integer :role, default: 0
       t.string  :github_token, default: nil
+      t.boolean :active, default: false
       t.timestamps
     end
   end
