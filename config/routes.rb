@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'
+  get '/invite', to: 'invite#show'
+  post '/invite', to: 'invite#new'
 
   namespace :api do
     namespace :v1 do

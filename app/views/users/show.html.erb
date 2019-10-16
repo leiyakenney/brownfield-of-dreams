@@ -8,6 +8,8 @@
   <% end %>
 
   <%= button_to 'Log Out', logout_path, method: 'delete', class: "btn btn-primary mb1 bg-teal" %>
+  <%= button_to 'Send an Invite', invite_path, method: 'get', class: "btn btn-primary mb1 bg-teal" %>
+
   <h4>Account Details</h4>
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
