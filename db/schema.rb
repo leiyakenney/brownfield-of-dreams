@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_31_230036) do
+ActiveRecord::Schema.define(version: 2019_10_14_192927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "friendships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "friend_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id", "friend_id"], name: "index_friendships_on_user_id_and_friend_id", unique: true
+    t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
@@ -65,8 +75,9 @@ ActiveRecord::Schema.define(version: 2018_07_31_230036) do
     t.string "last_name"
     t.string "password_digest"
     t.integer "role", default: 0
-    t.string "github_token"
     t.boolean "active", default: false
+    t.string "github_token"
+    t.bigint "github_username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
@@ -83,5 +94,6 @@ ActiveRecord::Schema.define(version: 2018_07_31_230036) do
   end
 
   add_foreign_key "user_videos", "users"
-  add_foreign_key "user_videos", "videos"
+  add_foreign_key "user_videos", "videos", on_delete: :cascade
+  #otherwise the videos has a foreign key on the u_v table
 end
