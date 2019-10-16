@@ -12,7 +12,16 @@ class Admin::TutorialsController < Admin::BaseController
     flash[:success] = "This tutorial has been deleted."
   end
 
-  def create; end
+  def create
+    @tutorial = Tutorial.create(tutorial_create_params)
+    if @tutorial.save
+      flash[:success] = "Successfully created tutorial."
+      redirect_to "/tutorials/#{@tutorial.id}"
+    else
+      flash[:error] = @tutorial.errors.full_messages.to_sentence
+      render :new
+    end
+  end 
 
   def new
     @tutorial = Tutorial.new
@@ -30,5 +39,9 @@ class Admin::TutorialsController < Admin::BaseController
 
   def tutorial_params
     params.require(:tutorial).permit(:tag_list)
+  end
+
+  def tutorial_create_params
+    params.require(:tutorial).permit(:title, :description, :thumbnail)
   end
 end
