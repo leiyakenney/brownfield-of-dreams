@@ -9,6 +9,5 @@ class RepoFacade
 
   def get_repo_data(current_user)
     GithubSearchResults.new(current_user).repos
-
   end
 end
