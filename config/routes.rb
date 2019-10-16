@@ -54,4 +54,5 @@ Rails.application.routes.draw do
   end
 
   resources :user_videos, only: %i[create destroy]
+  get "users/:id/activate", to: "users#update"
 end

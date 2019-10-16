@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_10_14_192927) do
     t.string "last_name"
     t.string "password_digest"
     t.integer "role", default: 0
+    t.boolean "active", default: false
     t.string "github_token"
     t.bigint "github_username"
     t.datetime "created_at", null: false

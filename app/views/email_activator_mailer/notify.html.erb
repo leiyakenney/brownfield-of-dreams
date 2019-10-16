@@ -1,0 +1,5 @@
+Hello, <%= @user.first_name %>!
+
+Visit here to activate your account.
+
+<%= link_to "Activate Account", "http://localhost:3000/users/#{@user.id}/activate" %>
