@@ -30,13 +30,13 @@
     <h4>Github Section</h4>
     <h3>Repos</h3>
     <section class ="github">
-      <% repos.each do |repo| %>
+      <% githubinfo.repos.each do |repo| %>
         <p class="repo_name_and_link"><%= link_to repo.name, repo.url %></p>
       <% end %>
 
       <section class ="followers">
     <h3>Followers</h3>
-      <% followers.each do |follower| %>
+      <% githubinfo.followers.each do |follower| %>
         <td class="followers_name_and_link"><%= link_to follower.name, follower.url %></td>
         <% if (find_associated_user(follower.uid).nil? == false) && (find_associated_user(follower.uid).github_username?) && (find_associated_user(follower.uid).github_username == follower.uid) %>
           || <%= button_to "Add as Friend", "/user/#{@current_user.id}/friendships/#{find_associated_user(follower.uid).id}", method: 'post' %>
@@ -47,7 +47,7 @@
 
       <section class ="followedaccounts">
     <h3>Followed Accounts</h3>
-      <% followed_accounts.each do |followed_account| %>
+      <% githubinfo.followed_accounts.each do |followed_account| %>
         <td class="following_name_and_link"><%= link_to followed_account.name, followed_account.url %></td>
         <% if (find_associated_user(followed_account.uid).nil? == false) && (find_associated_user(followed_account.uid).github_username?) && (find_associated_user(followed_account.uid).github_username == followed_account.uid) %>
           || <%= button_to "Add as Friend", "/user/#{@current_user.id}/friendships/#{find_associated_user(followed_account.uid).id}", method: 'post' %>
