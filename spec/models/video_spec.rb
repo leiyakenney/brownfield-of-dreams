@@ -17,6 +17,6 @@ RSpec.describe Video, type: :model do
       user = create(:user)
 
       expected_order = "Tutorial #{tutorial.id}\n#{video.title}\nTutorial #{tutorial_2.id}\n#{video_2.title}\nTutorial #{tutorial_3.id}\n#{video_4.title} #{video_3.title}"
-      expect(Video.ordered_grouped_videos[1].pop.title).to eq(video.title)
+      expect(Video.all.ordered_grouped_videos.first[1].pop.title).to eq(video.title)
     end
 end
