@@ -1,0 +1,18 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'lib/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+
+Documentation:
+  Enabled: false
