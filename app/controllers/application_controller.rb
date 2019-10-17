@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success
 
   def find_associated_user(follower_name)
-    user = User.find_by(github_username: follower_name)
+    User.find_by(github_username: follower_name)
   end
   #
   # def find_bookmark(id)

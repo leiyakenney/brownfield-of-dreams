@@ -22,7 +22,7 @@ RSpec.describe Tutorial, type: :model do
       create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_3, position: 4)
       create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_4, position: 5)
 
-      expect(Tutorial.non_classroom_tutorials).to eq([tutorial, tutorial_2, tutorial_4, tutorial_5, tutorial_6])
+      expect(Tutorial.no_class).to eq([tutorial, tutorial_2, tutorial_4, tutorial_5, tutorial_6])
     end
   end
 end

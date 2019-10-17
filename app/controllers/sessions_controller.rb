@@ -2,18 +2,12 @@
 
 class SessionsController < ApplicationController
   def new
-    @user ||= User.new
+    @new ||= User.new
   end
 
   def create
     user = User.find_by(email: params[:session][:email])
-    if # frozen_string_literal: true
-# def update
-#   @user = User.find_from_auth_hash(auth_hash)
-#   self.current_user = @user
-#   redirect_to '/'
-# end
-user&.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
