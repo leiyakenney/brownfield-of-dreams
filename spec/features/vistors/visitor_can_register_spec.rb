@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'visitor can create an account', :js do
+describe 'visitor can create an account' do
   it 'visits the home page and signs in using regular sign in process' do
     email = 'jimbob@aol.com'
     first_name = 'Jim'

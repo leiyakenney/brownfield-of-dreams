@@ -7,7 +7,7 @@ describe "Admin deletes a tutorial" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
     tutorial = create(:tutorial)
-    video1 = create(:video, tutorial_id: tutorial.id)
+    video1 = create(:video, tutorial_id: tutorial.id, position: 1)
 
     visit admin_dashboard_path
 

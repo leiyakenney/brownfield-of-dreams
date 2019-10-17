@@ -7,6 +7,5 @@ class FollowedAccountsFacade
 
   def get_followed_account_data(current_user)
     GithubSearchResults.new(current_user).followed_accounts
-
   end
 end
