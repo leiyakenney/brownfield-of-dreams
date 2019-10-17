@@ -23,5 +23,17 @@ describe 'An Admin can edit a tutorial' do
     within(first('.video')) do
       expect(page).to have_content('How to tie your shoes.')
     end
+
+    visit edit_admin_tutorial_path(tutorial)
+
+    click_on 'Add Video'
+
+    fill_in 'video[title]', with: ''
+    fill_in 'video[description]', with: 'Over, under, around and through, Meet Mr. Bunny Rabbit, pull and through.'
+    fill_in 'video[video_id]', with: 'J7ikFUlkP_k'
+    fill_in 'video[position]', with: '1'
+    click_on 'Create Video'
+
+    expect(page).to have_content('Unable to create video.')
   end
 end
