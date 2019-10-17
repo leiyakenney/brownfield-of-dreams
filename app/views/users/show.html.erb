@@ -34,6 +34,7 @@
         <p class="repo_name_and_link"><%= link_to repo.name, repo.url %></p>
       <% end %>
 
+      <section class ="followers">
     <h3>Followers</h3>
       <% followers.each do |follower| %>
         <td class="followers_name_and_link"><%= link_to follower.name, follower.url %></td>
@@ -42,7 +43,9 @@
         <% end %>
         <br>
       <% end %>
+      </section>
 
+      <section class ="followedaccounts">
     <h3>Followed Accounts</h3>
       <% followed_accounts.each do |followed_account| %>
         <td class="following_name_and_link"><%= link_to followed_account.name, followed_account.url %></td>
@@ -51,6 +54,7 @@
         <% end %>
         <br>
       <% end %>
+      </section>
       <% if @current_user.friendships != [] %>
       <h4>My Friends</h4>
         <% @current_user.friendships.each do |friendship| %>
