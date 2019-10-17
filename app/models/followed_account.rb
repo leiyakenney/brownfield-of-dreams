@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowedAccount
   attr_reader :name, :url, :uid
 

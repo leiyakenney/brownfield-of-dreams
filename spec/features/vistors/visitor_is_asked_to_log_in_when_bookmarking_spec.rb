@@ -10,9 +10,9 @@ describe 'visitor visits video show page' do
     visit tutorial_path(tutorial)
 
     expect(page).to have_content('User must log in to bookmark a video.')
-    expect(page).to have_link "Log In Here"
+    expect(page).to have_link 'Log In Here'
 
-    click_link "Log In Here"
+    click_link 'Log In Here'
     expect(current_path).to eq(login_path)
   end
 end

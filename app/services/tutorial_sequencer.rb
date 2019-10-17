@@ -23,7 +23,6 @@ class TutorialSequencer
       video = videos.find do |video|
         video.id == video_id.to_i
       end
-
       video.update(position: index) if video.position != index
     end
   end
