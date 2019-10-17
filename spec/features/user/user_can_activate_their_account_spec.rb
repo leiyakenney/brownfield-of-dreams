@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'A Non-Activated User' do
-  it "can activate their account" do
+  it 'can activate their account' do
     email = 'jimbob@aol.com'
     first_name = 'Jim'
     last_name = 'Bob'
@@ -36,12 +38,9 @@ describe 'A Non-Activated User' do
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content("Your account has been activated!")
+    expect(page).to have_content('Your account has been activated!')
 
     expect(page).to have_content("Account Status:\nAccount Activated")
-
-
-
 
     # As a non-activated user
     # When I check my email for the registration email
@@ -49,12 +48,10 @@ describe 'A Non-Activated User' do
     # And when I click on that link
     # Then I should be taken to a page that says "Thank you! Your account is now activated."
     # expect(current_path).to eq(activation_path)
-
   end
 
   it "sees 'Status: Active' on their dashboard" do
     # And when I visit "/dashboard"
     # Then I should see "Status: Active"
-
   end
 end

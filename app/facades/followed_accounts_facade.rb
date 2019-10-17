@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowedAccountsFacade
   def create_followed_accounts(current_user)
     get_followed_account_data(current_user).map do |followed_account|

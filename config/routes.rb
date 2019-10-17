@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
-    resources :tutorials, only: [:destroy, :create, :edit, :update, :new] do
+    resources :tutorials, only: %i[destroy create edit update new] do
       resources :videos, only: [:create]
     end
     resources :videos, only: %i[edit update destroy]
@@ -28,10 +28,8 @@ Rails.application.routes.draw do
     end
   end
 
-
   get '/auth/github', as: :github_login
   get '/auth/github/callback', to: 'github#create'
-
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -50,11 +48,10 @@ Rails.application.routes.draw do
     post '/:id/friendships/:friend_id', to: 'friendships#create'
   end
 
-
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
   end
 
   resources :user_videos, only: %i[create destroy]
-  get "users/:id/activate", to: "users#update"
+  get 'users/:id/activate', to: 'users#update'
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'A visitor' do
@@ -20,8 +22,7 @@ describe 'A visitor' do
     visit "/tutorials/#{tutorial.id}"
     expect(page).to have_content(tutorial.title)
 
-
-    visit "/"
+    visit '/'
     expect(page).to have_content(tutorial.title)
     expect(page).to_not have_content(tutorial_1.title)
     expect(page).to have_content(tutorial_2.title)

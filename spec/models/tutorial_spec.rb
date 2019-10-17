@@ -7,8 +7,8 @@ RSpec.describe Tutorial, type: :model do
     it { should have_many(:videos) }
   end
 
-  describe "class methods" do
-    it "can verify that a user has no orders" do
+  describe 'class methods' do
+    it 'can verify that a user has no orders' do
       tutorial = create(:tutorial, title: 'How to Tie Your Shoes', classroom: false)
       tutorial_1 = create(:tutorial, title: 'How to Tie Decorate a Christmas Tree', classroom: true)
       tutorial_2 = create(:tutorial, title: 'How to Make Sushi', classroom: false)
@@ -22,8 +22,7 @@ RSpec.describe Tutorial, type: :model do
       create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_3, position: 4)
       create(:video, title: 'The Bunny Ears Technique', tutorial: tutorial_4, position: 5)
 
-
-    expect(Tutorial.non_classroom_tutorials).to eq([tutorial, tutorial_2, tutorial_4, tutorial_5, tutorial_6])
+      expect(Tutorial.no_class).to eq([tutorial, tutorial_2, tutorial_4, tutorial_5, tutorial_6])
+    end
   end
-end
 end

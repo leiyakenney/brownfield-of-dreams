@@ -1,0 +1,30 @@
+require: rubocop-rspec
+
+AllCops:
+  Exclude:
+    - 'spec/**/*'
+    - 'db/**/*'
+    - 'node_modules/**/*'
+    - 'lib/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'Rakefile'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Exclude:
+    - 'app/**/*'
+
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    - 'app/controllers/admin/api/v1/tutorial_sequencer_controller.rb'
