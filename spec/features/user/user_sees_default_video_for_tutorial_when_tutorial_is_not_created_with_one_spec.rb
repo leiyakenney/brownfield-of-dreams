@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'A registered user' do
@@ -5,6 +7,6 @@ describe 'A registered user' do
     tutorial = create(:tutorial, title: 'How to Tie Your Shoes', classroom: false)
     visit "/tutorials/#{tutorial.id}"
 
-    expect(page).to have_content("TBD")
+    expect(page).to have_content('TBD')
   end
 end

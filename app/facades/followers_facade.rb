@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowersFacade
   def create_followers(current_user)
     get_follower_data(current_user).map do |follower|
@@ -7,6 +9,5 @@ class FollowersFacade
 
   def get_follower_data(current_user)
     GithubSearchResults.new(current_user).followers
-
   end
 end

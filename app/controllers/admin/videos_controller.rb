@@ -26,7 +26,6 @@ class Admin::VideosController < Admin::BaseController
     redirect_to edit_admin_tutorial_path(id: tutorial.id)
   end
 
-
   private
 
   def video_params

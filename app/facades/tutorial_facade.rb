@@ -9,9 +9,9 @@ class TutorialFacade < SimpleDelegator
   def current_video
     if @video_id
       videos.find(@video_id)
-    elsif self.videos == []
-      self.videos.new(position: 0, title: "TBD", description: "TBD", video_id:
-      "TBD", thumbnail: "TBD")
+    elsif videos == []
+      videos.new(position: 0, title: 'TBD', description: 'TBD', video_id:
+      'TBD', thumbnail: 'TBD')
     else
       videos.first
     end
