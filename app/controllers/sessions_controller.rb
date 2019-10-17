@@ -16,11 +16,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find_from_auth_hash(auth_hash)
-    self.current_user = @user
-    redirect_to '/'
-  end
+  # def update
+  #   @user = User.find_from_auth_hash(auth_hash)
+  #   self.current_user = @user
+  #   redirect_to '/'
+  # end
 
   def destroy
     session[:user_id] = nil
