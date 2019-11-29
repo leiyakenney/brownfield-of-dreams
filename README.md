@@ -8,7 +8,7 @@ Throughout the course of this project, we enhanced the abilities of three differ
 
 
 ## Contributors
-Brownfield of Dreams was created by Leiya Kenney and Josh Sherwood (@jsherwood1) as a Back End Mod 3 project at Turing School of Software and Design
+Brownfield of Dreams was created by Josh Sherwood and Leiya Kenney as a Back End Mod 3 project at Turing School of Software and Design
 
 
 ## Versions
